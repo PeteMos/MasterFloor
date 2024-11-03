@@ -1,0 +1,11 @@
+USE MasterPol;
+
+SELECT IdPartnerName, Sum(CountOfProduction),
+CASE
+	WHEN SUM(CountOfProduction) < 10000 THEN 0
+	WHEN SUM(CountOfProduction) >= 10000 AND SUM(CountOfProduction) < 50000 THEN 5
+	WHEN SUM(CountOfProduction) >= 50000 AND SUM(CountOfProduction) < 300000 THEN 10
+	WHEN SUM(CountOfProduction) >= 300000 THEN 15
+END AS Discount
+FROM Partner_products_import
+GROUP BY IdPartnerName
