@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterPol", "MasterPol\MasterPol.csproj", "{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EABFB114-E0B1-40C7-BEE0-95AE6A5CF5F6}
+	EndGlobalSection
+EndGlobal
