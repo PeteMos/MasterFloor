@@ -23,18 +23,23 @@
 
                         <StackPanel Grid.Column="0" VerticalAlignment="Center">
                             <TextBlock>
-                                <Run Text="Тип | Наименование партнера: "/>
-                                <Run Text="{Binding TypeOfPartner.TypeOfPartner1}"/>
-                                <Run Text="|"/>
-                                <Run Text="{Binding PartnerName.Name}"/>
+                        <Run Text="Тип | Наименование партнера: "/>
+                        <Run Text="{Binding Partner.TypeOfPartner.TypeOfPartner1}"/>
+                        <Run Text="|"/>
+                        <Run Text="{Binding Partner.PartnerName.Name}"/>
                             </TextBlock>
-                            <TextBlock Text="{Binding Directors.FIO, StringFormat={}Директор: {0}}"></TextBlock>
-                            <TextBlock Text="{Binding PhoneOfPartner, StringFormat={}Номер телефона: {0}}"></TextBlock>
-                            <TextBlock Text="{Binding Reiting, StringFormat={}Рейтинг: {0}}"></TextBlock>
+                            <TextBlock Text="{Binding Partner.Directors.FIO, StringFormat={}Директор: {0}}"></TextBlock>
+                            <TextBlock Text="{Binding Partner.PhoneOfPartner, StringFormat={}Номер телефона: {0}}"></TextBlock>
+                            <TextBlock Text="{Binding Partner.Reiting, StringFormat={}Рейтинг: {0}}"></TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Discount, StringFormat={}Скидка: {0}%}"></TextBlock>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
     </Grid>
 </Page>
