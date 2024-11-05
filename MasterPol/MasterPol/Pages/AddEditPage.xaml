@@ -17,7 +17,7 @@
 
         <Grid Grid.Row="0" HorizontalAlignment="Center"
               VerticalAlignment="Center">
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -47,7 +47,7 @@
                      IsEnabled="False" IsReadOnly="True"></TextBox>
             <TextBox x:Name="NameTextBox" Grid.Row="1" Grid.Column="1"></TextBox>
             <ComboBox x:Name="TypeComboBox" Grid.Row="2" Grid.Column="1"
-                      DisplayMemberPath="TypeOfPartner"></ComboBox>
+                      DisplayMemberPath="TypeOfPartner1"></ComboBox>
             <TextBox x:Name="RatingTextBox" Grid.Row="3" Grid.Column="1"></TextBox>
 
             <TextBox x:Name="AdressTextBox" Grid.Row="0" Grid.Column="3"></TextBox>
@@ -57,9 +57,13 @@
 
         </Grid>
 
-        
         <Button x:Name="BackButton" Grid.Row="1"
-                Content="Назад"
+                Content="Назад" HorizontalAlignment="Left"
+                Margin="10"
                 Click="BackButton_Click"></Button>
+        <Button x:Name="SaveButton" Grid.Row="1"
+                Content="Сохранить" HorizontalAlignment="Right"
+                Margin="10"
+                Click="SaveButton_Click"></Button>
     </Grid>
 </Page>
