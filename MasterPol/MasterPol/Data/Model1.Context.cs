@@ -28,7 +28,7 @@ namespace MasterPol.Data
             }
             return _context;
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -38,13 +38,13 @@ namespace MasterPol.Data
         public virtual DbSet<Cities> Cities { get; set; }
         public virtual DbSet<Directors> Directors { get; set; }
         public virtual DbSet<Indexes> Indexes { get; set; }
-        public virtual DbSet<Material_type_import> Material_type_import { get; set; }
-        public virtual DbSet<Partner_products_import> Partner_products_import { get; set; }
+        public virtual DbSet<MaterialTypeImport> MaterialTypeImport { get; set; }
         public virtual DbSet<PartnerName> PartnerName { get; set; }
-        public virtual DbSet<Partners_import> Partners_import { get; set; }
-        public virtual DbSet<Product_type_import> Product_type_import { get; set; }
+        public virtual DbSet<PartnerProductsImport> PartnerProductsImport { get; set; }
+        public virtual DbSet<PartnersImport> PartnersImport { get; set; }
         public virtual DbSet<Production> Production { get; set; }
-        public virtual DbSet<Products_import> Products_import { get; set; }
+        public virtual DbSet<ProductsImport> ProductsImport { get; set; }
+        public virtual DbSet<ProductTypeImport> ProductTypeImport { get; set; }
         public virtual DbSet<Regions> Regions { get; set; }
         public virtual DbSet<Streets> Streets { get; set; }
         public virtual DbSet<TypeOfPartner> TypeOfPartner { get; set; }

@@ -17,16 +17,16 @@ namespace MasterPol.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Production()
         {
-            this.Partner_products_import = new HashSet<Partner_products_import>();
-            this.Products_import = new HashSet<Products_import>();
+            this.PartnerProductsImport = new HashSet<PartnerProductsImport>();
+            this.ProductsImport = new HashSet<ProductsImport>();
         }
     
         public int Id { get; set; }
         public string NameOfProduction { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Partner_products_import> Partner_products_import { get; set; }
+        public virtual ICollection<PartnerProductsImport> PartnerProductsImport { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Products_import> Products_import { get; set; }
+        public virtual ICollection<ProductsImport> ProductsImport { get; set; }
     }
 }

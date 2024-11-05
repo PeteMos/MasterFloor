@@ -12,7 +12,7 @@ namespace MasterPol.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Product_type_import
+    public partial class ProductTypeImport
     {
         public int Id { get; set; }
         public int IdProductType { get; set; }

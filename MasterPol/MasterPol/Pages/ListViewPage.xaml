@@ -5,11 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:MasterPol.Pages"
       mc:Ignorable="d" d:DesignHeight="650" d:DesignWidth="1000"
-      Title="ИС Мастер Пол - список партнеров">
+      Title="ИС Мастер Пол - список партнеров"
+      Background="White">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
 
         <ListView x:Name="MasterListView" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -17,8 +19,9 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="450"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="350"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0" VerticalAlignment="Center">
@@ -32,14 +35,18 @@
                             <TextBlock Text="{Binding Partner.PhoneOfPartner, StringFormat={}Номер телефона: {0}}"></TextBlock>
                             <TextBlock Text="{Binding Partner.Reiting, StringFormat={}Рейтинг: {0}}"></TextBlock>
                         </StackPanel>
+                        
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding Discount, StringFormat={}Скидка: {0}%}"></TextBlock>
 
-                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                            <TextBlock Text="{Binding Discount, StringFormat={}Скидка: {0}%}"></TextBlock>
-                        </StackPanel>
+                        <Button x:Name="EditButton" Grid.Column="2" 
+                                Content="Редактировать"
+                                Click="EditButton_Click"></Button>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button x:Name="AddButton" Grid.Row="1" Content="Добавить"
+                Click="AddButton_Click"></Button>
 
     </Grid>
 </Page>

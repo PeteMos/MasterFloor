@@ -12,7 +12,7 @@ namespace MasterPol.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Material_type_import
+    public partial class MaterialTypeImport
     {
         public int Id { get; set; }
         public string TypeOfMaterial { get; set; }

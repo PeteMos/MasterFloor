@@ -18,10 +18,10 @@ namespace MasterPol.Pages
 
         private void LoadData()
         {
-            var partners = Data.MasterPolEntities.GetContext().Partners_import.ToList();
+            var partners = Data.MasterPolEntities.GetContext().PartnersImport.ToList();
 
             var partnerDiscounts = from partner in partners
-                                   join product in Data.MasterPolEntities.GetContext().Partner_products_import
+                                   join product in Data.MasterPolEntities.GetContext().PartnerProductsImport
                                    on partner.Id equals product.IdPartnerName
                                    group product by partner into g
                                    select new
@@ -32,17 +32,27 @@ namespace MasterPol.Pages
 
             MasterListView.ItemsSource = partnerDiscounts.Select(pd => new
             {
-                Partner = pd.Partner, // Передаем весь объект партнера
+                Partner = pd.Partner, 
                 pd.Discount
             }).ToList();
         }
 
-        private int CalculateDiscount(decimal totalCount)
+        private int CalculateDiscount(int totalCount)
         {
             if (totalCount < 10000) return 0;
             if (totalCount >= 10000 && totalCount < 50000) return 5;
             if (totalCount >= 50000 && totalCount < 300000) return 10;
-            return 15; // totalCount >= 300000
+            return 15;
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.Manager.MainFrame.Navigate(new Pages.AddEditPage());
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.Manager.MainFrame.Navigate(new Pages.AddEditPage());
         }
     }
 }

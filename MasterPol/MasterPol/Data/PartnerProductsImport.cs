@@ -12,15 +12,15 @@ namespace MasterPol.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Products_import
+    public partial class PartnerProductsImport
     {
         public int Id { get; set; }
-        public int IdProductType { get; set; }
         public int IdProduction { get; set; }
-        public long Article { get; set; }
-        public decimal MinPriceForPartner { get; set; }
+        public int IdPartnerName { get; set; }
+        public int CountOfProduction { get; set; }
+        public System.DateTime DateOfSale { get; set; }
     
+        public virtual PartnerName PartnerName { get; set; }
         public virtual Production Production { get; set; }
-        public virtual TypeOfProduction TypeOfProduction { get; set; }
     }
 }

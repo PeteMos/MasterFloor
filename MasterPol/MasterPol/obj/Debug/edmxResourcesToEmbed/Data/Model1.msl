@@ -37,23 +37,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Material_type_import">
-      <EntityTypeMapping TypeName="MasterPolModel.Material_type_import">
-        <MappingFragment StoreEntitySet="Material_type_import">
+    <EntitySetMapping Name="MaterialTypeImport">
+      <EntityTypeMapping TypeName="MasterPolModel.MaterialTypeImport">
+        <MappingFragment StoreEntitySet="MaterialTypeImport">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="TypeOfMaterial" ColumnName="TypeOfMaterial" />
           <ScalarProperty Name="PercentOfDefect" ColumnName="PercentOfDefect" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Partner_products_import">
-      <EntityTypeMapping TypeName="MasterPolModel.Partner_products_import">
-        <MappingFragment StoreEntitySet="Partner_products_import">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdProduction" ColumnName="IdProduction" />
-          <ScalarProperty Name="IdPartnerName" ColumnName="IdPartnerName" />
-          <ScalarProperty Name="CountOfProduction" ColumnName="CountOfProduction" />
-          <ScalarProperty Name="DateOfSale" ColumnName="DateOfSale" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -65,9 +54,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Partners_import">
-      <EntityTypeMapping TypeName="MasterPolModel.Partners_import">
-        <MappingFragment StoreEntitySet="Partners_import">
+    <EntitySetMapping Name="PartnerProductsImport">
+      <EntityTypeMapping TypeName="MasterPolModel.PartnerProductsImport">
+        <MappingFragment StoreEntitySet="PartnerProductsImport">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdProduction" ColumnName="IdProduction" />
+          <ScalarProperty Name="IdPartnerName" ColumnName="IdPartnerName" />
+          <ScalarProperty Name="CountOfProduction" ColumnName="CountOfProduction" />
+          <ScalarProperty Name="DateOfSale" ColumnName="DateOfSale" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnersImport">
+      <EntityTypeMapping TypeName="MasterPolModel.PartnersImport">
+        <MappingFragment StoreEntitySet="PartnersImport">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdTypeOfParther" ColumnName="IdTypeOfParther" />
           <ScalarProperty Name="IdPartnerName" ColumnName="IdPartnerName" />
@@ -80,15 +80,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Product_type_import">
-      <EntityTypeMapping TypeName="MasterPolModel.Product_type_import">
-        <MappingFragment StoreEntitySet="Product_type_import">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdProductType" ColumnName="IdProductType" />
-          <ScalarProperty Name="CoefOfType" ColumnName="CoefOfType" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Production">
       <EntityTypeMapping TypeName="MasterPolModel.Production">
         <MappingFragment StoreEntitySet="Production">
@@ -97,14 +88,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Products_import">
-      <EntityTypeMapping TypeName="MasterPolModel.Products_import">
-        <MappingFragment StoreEntitySet="Products_import">
+    <EntitySetMapping Name="ProductsImport">
+      <EntityTypeMapping TypeName="MasterPolModel.ProductsImport">
+        <MappingFragment StoreEntitySet="ProductsImport">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdProductType" ColumnName="IdProductType" />
           <ScalarProperty Name="IdProduction" ColumnName="IdProduction" />
           <ScalarProperty Name="Article" ColumnName="Article" />
           <ScalarProperty Name="MinPriceForPartner" ColumnName="MinPriceForPartner" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTypeImport">
+      <EntityTypeMapping TypeName="MasterPolModel.ProductTypeImport">
+        <MappingFragment StoreEntitySet="ProductTypeImport">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdProductType" ColumnName="IdProductType" />
+          <ScalarProperty Name="CoefOfType" ColumnName="CoefOfType" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
