@@ -59,7 +59,7 @@
 
         
         <Button x:Name="BackButton" Grid.Row="1"
-                Content="Back"
+                Content="Назад"
                 Click="BackButton_Click"></Button>
     </Grid>
 </Page>
