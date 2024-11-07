@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using MasterPol.Data;
 
 namespace MasterPol.Pages
 {
@@ -20,21 +19,17 @@ namespace MasterPol.Pages
         {
             var partners = Data.MasterPolEntities.GetContext().PartnersImport.ToList();
 
-            var partnerDiscounts = from partner in partners
-                                   join product in Data.MasterPolEntities.GetContext().PartnerProductsImport
-                                   on partner.Id equals product.IdPartnerName
-                                   group product by partner into g
-                                   select new
-                                   {
-                                       Partner = g.Key,
-                                       Discount = CalculateDiscount(g.Sum(p => p.CountOfProduction))
-                                   };
+            var partnerDiscounts = (from partner in partners
+                                    join product in Data.MasterPolEntities.GetContext().PartnerProductsImport
+                                    on partner.Id equals product.IdPartnerName
+                                    group product by partner into g
+                                    select new
+                                    {
+                                        Partner = g.Key,
+                                        Discount = CalculateDiscount(g.Sum(p => p.CountOfProduction))
+                                    }).ToList();
 
-            MasterListView.ItemsSource = partnerDiscounts.Select(pd => new
-            {
-                Partner = pd.Partner, 
-                pd.Discount
-            }).ToList();
+            MasterListView.ItemsSource = partnerDiscounts;
         }
 
         private int CalculateDiscount(int totalCount)
