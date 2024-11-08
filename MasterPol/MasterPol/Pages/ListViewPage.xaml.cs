@@ -49,5 +49,10 @@ namespace MasterPol.Pages
         {
             Classes.Manager.MainFrame.Navigate(new Pages.AddEditPage(null));
         }
+
+        private void HistoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.Manager.MainFrame.Navigate(new Pages.HistoryPage());
+        }
     }
 }

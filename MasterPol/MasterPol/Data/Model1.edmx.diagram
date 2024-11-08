@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="MasterPolModel.PartnerName" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MasterPolModel.PartnerProductsImport" Width="1.5" PointX="11" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MasterPolModel.PartnersImport" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="MasterPolModel.Production" Width="1.5" PointX="5.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPolModel.Production" Width="2" PointX="5.375" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="MasterPolModel.ProductsImport" Width="1.5" PointX="8" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MasterPolModel.ProductTypeImport" Width="1.5" PointX="8" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MasterPolModel.Regions" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />

@@ -133,3 +133,5 @@ C:\Users\pmosin\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\MasterPol.Prop
 C:\Users\pmosin\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\MasterPol.csproj.GenerateResource.cache
 C:\Users\pmosin\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\MasterPol.csproj.CoreCompileInputs.cache
 C:\Users\pmosin\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\MasterPol.csproj.CopyComplete
+C:\Users\lisav\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\HistoryPage.g.cs
+C:\Users\lisav\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\HistoryPage.baml

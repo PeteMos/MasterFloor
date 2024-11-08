@@ -14,19 +14,21 @@
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <ListView x:Name="MasterListView" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <ListView x:Name="MasterListView" 
+                  VerticalAlignment="Center" 
+                  HorizontalAlignment="Center">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="350"></ColumnDefinition>
                             <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0" VerticalAlignment="Center">
                             <TextBlock>
-                        <Run Text="Тип | Наименование партнера: "/>
                         <Run Text="{Binding Partner.TypeOfPartner.TypeOfPartner1}"/>
                         <Run Text="|"/>
                         <Run Text="{Binding Partner.PartnerName.Name}"/>
@@ -41,6 +43,9 @@
                         <Button x:Name="EditButton" Grid.Column="2" 
                                 Content="Редактировать"
                                 Click="EditButton_Click"></Button>
+                        <Button x:Name="HistoryButton" Grid.Column="3" 
+                                Content="История реализации" Margin="10"
+                                Click="HistoryButton_Click"></Button>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
