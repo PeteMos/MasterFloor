@@ -14,21 +14,22 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="HistoryDataGrid" Grid.Row="0"
-                  AutoGenerateColumns="False"                 
+        <DataGrid x:Name="HistoryDataGrid" Grid.Row="0" 
+                  AutoGenerateColumns="False"
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование" 
-                 Binding="{Binding Production.NameOfProduction}"></DataGridTextColumn>
+                    Binding="{Binding Production.NameOfProduction}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Количество продукции"
-                 Binding="{Binding CountOfProduction}"></DataGridTextColumn>
+                    Binding="{Binding CountOfProduction}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Дата продажи"
-                 Binding="{Binding DateOfSale, StringFormat='{}{0:yyyy-MM-dd}'}"></DataGridTextColumn>
+                    Binding="{Binding DateOfSale, StringFormat='{}{0:yyyy-MM-dd}'}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+
         <Button x:Name="BackButton" Grid.Row="1" 
                 Content="Назад" HorizontalAlignment="Center"
                 Click="BackButton_Click"></Button>

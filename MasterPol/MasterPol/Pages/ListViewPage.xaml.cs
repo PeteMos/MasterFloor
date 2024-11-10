@@ -56,7 +56,19 @@ namespace MasterPol.Pages
 
         private void HistoryButton_Click(object sender, RoutedEventArgs e)
         {
-            Classes.Manager.MainFrame.Navigate(new Pages.HistoryPage());
+            Button historyButton = sender as Button;
+            var partnerData = historyButton.DataContext;
+
+            if (partnerData != null)
+            {
+                var partner = (partnerData as dynamic).Partner;
+                Classes.Manager.MainFrame.Navigate(new HistoryPage(partner));
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, выберите партнера из списка.");
+            }
         }
+
     }
 }
