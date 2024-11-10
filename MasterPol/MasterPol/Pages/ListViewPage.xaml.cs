@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -42,7 +40,13 @@ namespace MasterPol.Pages
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            Classes.Manager.MainFrame.Navigate(new Pages.AddEditPage(null));
+            Button editButton = sender as Button;
+            var partnerData = editButton.DataContext;
+            if (partnerData != null)
+            {
+                var partner = (partnerData as dynamic).Partner;
+                Classes.Manager.MainFrame.Navigate(new Pages.AddEditPage(partner));
+            }
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)

@@ -12,73 +12,42 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MasterPol.Data;
 
 namespace MasterPol.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для AddEditPage.xaml
-    /// </summary>
     public partial class AddEditPage : Page
     {
-        public string FlagAddorEdit = "default";
-        public Data.PartnersImport _currentpartner = new Data.PartnersImport();
-        public AddEditPage(Data.PartnersImport partner)
+        private PartnersImport _currentpartner;
+        private bool FlagAddorEdit;
+
+        public AddEditPage(PartnersImport partner)
         {
             InitializeComponent();
-
-            if (partner != null)
-            {
-                _currentpartner = partner;
-                FlagAddorEdit = "edit";
-            }
-            else
-            {
-                FlagAddorEdit = "add";
-            }
-            DataContext = _currentpartner;
-
+            _currentpartner = partner;
+            FlagAddorEdit = _currentpartner == null;
             Init();
         }
+
         public void Init()
         {
-            try
+            IdTextBox.Visibility = Visibility.Hidden;
+            IdLabel.Visibility = Visibility.Hidden;
+            TypeComboBox.ItemsSource = Data.MasterPolEntities.GetContext().TypeOfPartner.ToList();
+            if (_currentpartner != null)
             {
-                TypeComboBox.ItemsSource = Data.MasterPolEntities.GetContext().TypeOfPartner.ToList();
-                if (FlagAddorEdit == "add")
-                {
-                    IdTextBox.Visibility = Visibility.Hidden;
-                    IdLabel.Visibility = Visibility.Hidden;
-
-                    TypeComboBox.SelectedItem = null;
-                    NameTextBox.Text = string.Empty;
-                    RatingTextBox.Text = string.Empty;
-                    AdressTextBox.Text = string.Empty;
-                    FIOTextBox.Text = string.Empty;
-                    PhoneTextBox.Text = string.Empty;
-                    EmailTextBox.Text = string.Empty;
-                    IdTextBox.Text = Data.MasterPolEntities.GetContext().ProductsImport.Max(d => d.Id + 1).ToString();
-                }
-                else if (FlagAddorEdit == "edit")
-                {
-                    IdTextBox.Visibility = Visibility.Hidden;
-                    IdLabel.Visibility = Visibility.Hidden;
-
-                    TypeComboBox.SelectedItem = null;
-                    NameTextBox.Text = _currentpartner.PartnerName.Name.ToString();
-                    RatingTextBox.Text = _currentpartner.Reiting.ToString();
-                    AdressTextBox.Text = _currentpartner.Adress.ToString();
-                    FIOTextBox.Text = _currentpartner.Directors.FIO.ToString();
-                    PhoneTextBox.Text = _currentpartner.PhoneOfPartner.ToString();
-                    EmailTextBox.Text = _currentpartner.EmailOfPartner.ToString();
-                    IdTextBox.Text = Data.MasterPolEntities.GetContext().PartnersImport.Max(p => p.Id + 1).ToString();
-                    TypeComboBox.SelectedItem = Data.MasterPolEntities.GetContext().TypeOfPartner.Where(d => d.Id == _currentpartner.Id).FirstOrDefault();
-                }
-            }
-            catch (Exception)
-            {
-
+                NameTextBox.Text = _currentpartner.PartnerName.Name;
+                RatingTextBox.Text = _currentpartner.Reiting.ToString();
+                AdressTextBox.Text = _currentpartner.IdAdress.ToString();
+                FIOTextBox.Text = _currentpartner.Directors.FIO;
+                PhoneTextBox.Text = _currentpartner.PhoneOfPartner;
+                EmailTextBox.Text = _currentpartner.EmailOfPartner;
+                IdTextBox.Text = _currentpartner.Id.ToString();
+                TypeComboBox.SelectedItem = Data.MasterPolEntities.GetContext().TypeOfPartner
+                    .FirstOrDefault(d => d.Id == _currentpartner.IdTypeOfParther);
             }
         }
+
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
@@ -180,13 +149,13 @@ namespace MasterPol.Pages
 
 
 
-                if (FlagAddorEdit == "add")
+                if (FlagAddorEdit)
                 {
                     Data.MasterPolEntities.GetContext().PartnersImport.Add(_currentpartner);
                     Data.MasterPolEntities.GetContext().SaveChanges();
                     MessageBox.Show("Успешно добавлено!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-                else if (FlagAddorEdit == "edit")
+                else if (FlagAddorEdit)
                 {
                     Data.MasterPolEntities.GetContext().SaveChanges();
                     MessageBox.Show("Успешно изменено!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);

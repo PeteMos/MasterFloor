@@ -135,3 +135,7 @@ C:\Users\pmosin\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\MasterPol.cspr
 C:\Users\pmosin\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\MasterPol.csproj.CopyComplete
 C:\Users\lisav\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\HistoryPage.g.cs
 C:\Users\lisav\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\HistoryPage.baml
+C:\Users\user\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\AddEditPage.g.cs
+C:\Users\user\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\HistoryPage.g.cs
+C:\Users\user\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\AddEditPage.baml
+C:\Users\user\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\HistoryPage.baml
