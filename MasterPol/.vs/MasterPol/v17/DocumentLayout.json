@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\MasterFloor\\MasterPol\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}|MasterPol\\MasterPol.csproj|C:\\Users\\user\\Desktop\\MasterFloor\\MasterPol\\masterpol\\pages\\listviewpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}|MasterPol\\MasterPol.csproj|solutionrelative:masterpol\\pages\\listviewpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}|MasterPol\\MasterPol.csproj|C:\\Users\\user\\Desktop\\MasterFloor\\MasterPol\\masterpol\\pages\\listviewpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}|MasterPol\\MasterPol.csproj|solutionrelative:masterpol\\pages\\listviewpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}|MasterPol\\MasterPol.csproj|c:\\users\\user\\desktop\\masterfloor\\masterpol\\masterpol\\pages\\addeditpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}|MasterPol\\MasterPol.csproj|solutionrelative:masterpol\\pages\\addeditpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}|MasterPol\\MasterPol.csproj|C:\\Users\\user\\Desktop\\MasterFloor\\MasterPol\\masterpol\\pages\\addeditpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}|MasterPol\\MasterPol.csproj|solutionrelative:masterpol\\pages\\addeditpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}|MasterPol\\MasterPol.csproj|C:\\Users\\user\\Desktop\\MasterFloor\\MasterPol\\masterpol\\pages\\listviewpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}|MasterPol\\MasterPol.csproj|solutionrelative:masterpol\\pages\\listviewpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}|MasterPol\\MasterPol.csproj|C:\\Users\\user\\Desktop\\MasterFloor\\MasterPol\\masterpol\\pages\\listviewpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}|MasterPol\\MasterPol.csproj|solutionrelative:masterpol\\pages\\listviewpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{52F1A1BE-6E43-4F4A-8F18-74C9B2647AC6}|MasterPol\\MasterPol.csproj|C:\\Users\\user\\Desktop\\MasterFloor\\MasterPol\\masterpol\\data\\model1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -93,20 +93,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "AddEditPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\MasterFloor\\MasterPol\\MasterPol\\Pages\\AddEditPage.xaml.cs",
               "RelativeDocumentMoniker": "MasterPol\\Pages\\AddEditPage.xaml.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\MasterFloor\\MasterPol\\MasterPol\\Pages\\AddEditPage.xaml.cs",
               "RelativeToolTip": "MasterPol\\Pages\\AddEditPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAA6wEIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T14:15:22.51Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "AddEditPage.xaml",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\MasterFloor\\MasterPol\\MasterPol\\Pages\\AddEditPage.xaml",
               "RelativeDocumentMoniker": "MasterPol\\Pages\\AddEditPage.xaml",
@@ -117,19 +117,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ListViewPage.xaml",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\MasterFloor\\MasterPol\\MasterPol\\Pages\\ListViewPage.xaml",
               "RelativeDocumentMoniker": "MasterPol\\Pages\\ListViewPage.xaml",
               "ToolTip": "C:\\Users\\user\\Desktop\\MasterFloor\\MasterPol\\MasterPol\\Pages\\ListViewPage.xaml",
               "RelativeToolTip": "MasterPol\\Pages\\ListViewPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-28T09:49:19.267Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T09:49:19.267Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ListViewPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\MasterFloor\\MasterPol\\MasterPol\\Pages\\ListViewPage.xaml.cs",
               "RelativeDocumentMoniker": "MasterPol\\Pages\\ListViewPage.xaml.cs",
@@ -137,8 +136,7 @@
               "RelativeToolTip": "MasterPol\\Pages\\ListViewPage.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T09:49:19.273Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T09:49:19.273Z"
             },
             {
               "$type": "Document",
@@ -197,8 +195,7 @@
               "ToolTip": "C:\\Users\\user\\Desktop\\MasterFloor\\MasterPol\\MasterPol\\App.xaml",
               "RelativeToolTip": "MasterPol\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-28T09:49:18.757Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T09:49:18.757Z"
             },
             {
               "$type": "Document",
