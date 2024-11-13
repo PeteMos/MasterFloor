@@ -1,0 +1,220 @@
+using MasterPol.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace MasterPol.Pages
+{
+    /// <summary>
+    /// Логика взаимодействия для AddEditPage.xaml
+    /// </summary>
+    public partial class AddEditPage : Page
+    {
+        private PartnersImport _currentpartner;
+        private bool FlagAddorEdit;
+
+        public AddEditPage(PartnersImport partner)
+        {
+            InitializeComponent();
+            _currentpartner = partner;
+            FlagAddorEdit = _currentpartner == null;
+            Init();
+        }
+
+        public void Init()
+        {
+            IdTextBox.Visibility = Visibility.Hidden;
+            IdLabel.Visibility = Visibility.Hidden;
+            TypeComboBox.ItemsSource = Data.MasterFloorEntities.GetContext().TypeOfPartners.ToList();
+            if (_currentpartner != null)
+            {
+                NameTextBox.Text = _currentpartner.PartnerName.PartnerName1;
+                RatingTextBox.Text = _currentpartner.Reiting.ToString();
+                IndexTextBox.Text = _currentpartner.Adress.Indexes.Id.ToString();
+                RegionTextBox.Text = _currentpartner.Adress.Regions.Id.ToString(); 
+                CityTextBox.Text = _currentpartner.Adress.Cities.Id.ToString(); ;
+                StreetTextBox.Text = _currentpartner.Adress.Streets.Id.ToString(); 
+                HouseNumTextBox.Text = _currentpartner.Adress.HouseNum.ToString(); 
+                FIOTextBox.Text = _currentpartner.Directors.FIO;
+                PhoneTextBox.Text = _currentpartner.PhoneOfPartner;
+                EmailTextBox.Text = _currentpartner.EmailOfPartner;
+                IdTextBox.Text = _currentpartner.Id.ToString();
+
+
+                TypeComboBox.SelectedItem = Data.MasterFloorEntities.GetContext().TypeOfPartners
+                    .FirstOrDefault(d => d.Id == _currentpartner.Id);
+            }
+        }
+
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.Manager.MainFrame.Navigate(new Pages.ListViewPage());
+        }
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                StringBuilder errors = new StringBuilder();
+
+                if (string.IsNullOrEmpty(NameTextBox.Text))
+                {
+                    errors.AppendLine("Заполните наименование!");
+                }
+                if (TypeComboBox.SelectedItem == null)
+                {
+                    errors.AppendLine("Выберите тип партнера!");
+                }
+                if (string.IsNullOrEmpty(RatingTextBox.Text))
+                {
+                    errors.AppendLine("Заполните рейтинг!");
+                }
+                if (string.IsNullOrEmpty(IndexTextBox.Text))
+                {
+                    errors.AppendLine("Заполните индекс!");
+                }
+                if (string.IsNullOrEmpty(RegionTextBox.Text))
+                {
+                    errors.AppendLine("Заполните регион!");
+                }
+                if (string.IsNullOrEmpty(CityTextBox.Text))
+                {
+                    errors.AppendLine("Заполните город!");
+                }
+                if (string.IsNullOrEmpty(StreetTextBox.Text))
+                {
+                    errors.AppendLine("Заполните улицу!");
+                }
+                if (string.IsNullOrEmpty(HouseNumTextBox.Text))
+                {
+                    errors.AppendLine("Заполните номер дома!");
+                }
+                if (string.IsNullOrEmpty(FIOTextBox.Text))
+                {
+                    errors.AppendLine("Заполните ФИО!");
+                }
+                if (string.IsNullOrEmpty(PhoneTextBox.Text))
+                {
+                    errors.AppendLine("Заполните номер телефона!");
+                }
+                if (string.IsNullOrEmpty(EmailTextBox.Text))
+                {
+                    errors.AppendLine("Заполните Email!");
+                }
+
+                if (errors.Length > 0)
+                {
+                    MessageBox.Show(errors.ToString(), "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                var selectedCategory = TypeComboBox.SelectedItem as Data.TypeOfPartners;
+                if (selectedCategory == null)
+                {
+                    MessageBox.Show("Выберите тип партнера!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                if (!FlagAddorEdit)
+                {
+                    _currentpartner.Id = selectedCategory.Id;
+                    _currentpartner.Reiting = Convert.ToInt32(RatingTextBox.Text);
+                    _currentpartner.PhoneOfPartner = PhoneTextBox.Text;
+                    _currentpartner.EmailOfPartner = EmailTextBox.Text;
+                    _currentpartner.Adress.Indexes.IndexOf = Convert.ToInt32(IndexTextBox.Text);
+
+                    _currentpartner.Adress.Regions.RegionOf = RegionTextBox.Text;
+                    _currentpartner.Adress.Cities.CityOf = CityTextBox.Text;
+                    _currentpartner.Adress.Streets.StreetOf = StreetTextBox.Text;
+
+                    _currentpartner.Adress.HouseNum = Convert.ToInt32(HouseNumTextBox.Text);
+
+
+                    var searchDirector = (from item in Data.MasterFloorEntities.GetContext().Directors
+                                          where item.Id == _currentpartner.IdDirector
+                                          select item).FirstOrDefault();
+                    if (searchDirector != null)
+                    {
+                        searchDirector.FIO = FIOTextBox.Text;
+                    }
+
+                    var searchPartnerName = (from item in Data.MasterFloorEntities.GetContext().PartnerName
+                                             where item.Id == _currentpartner.IdPartnerName
+                                             select item).FirstOrDefault();
+                    if (searchPartnerName != null)
+                    {
+                        searchPartnerName.PartnerName1 = NameTextBox.Text;
+                    }
+
+                    MessageBox.Show("Успешно изменено!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    var newPartner = new Data.PartnersImport
+                    {
+                        Id = selectedCategory.Id,
+                        Reiting = Convert.ToInt32(RatingTextBox.Text),
+                        PhoneOfPartner = PhoneTextBox.Text,
+                        EmailOfPartner = EmailTextBox.Text
+                    };
+
+                    var searchDirector = (from item in Data.MasterFloorEntities.GetContext().Directors
+                                          where item.FIO == FIOTextBox.Text
+                                          select item).FirstOrDefault();
+                    if (searchDirector != null)
+                    {
+                        newPartner.IdDirector = searchDirector.Id;
+                    }
+                    else
+                    {
+                        Data.Directors directors = new Data.Directors()
+                        {
+                            FIO = FIOTextBox.Text
+                        };
+                        Data.MasterFloorEntities.GetContext().Directors.Add(directors);
+                        Data.MasterFloorEntities.GetContext().SaveChanges();
+                        newPartner.IdDirector = directors.Id;
+                    }
+
+                    var searchPartnerName = (from item in Data.MasterFloorEntities.GetContext().PartnerName
+                                             where item.PartnerName1 == NameTextBox.Text
+                                             select item).FirstOrDefault();
+                    if (searchPartnerName != null)
+                    {
+                        newPartner.IdPartnerName = searchPartnerName.Id;
+                    }
+                    else
+                    {
+                        Data.PartnerName partnerName = new Data.PartnerName()
+                        {
+                            PartnerName1 = NameTextBox.Text
+                        };
+                        Data.MasterFloorEntities.GetContext().PartnerName.Add(partnerName);
+                        Data.MasterFloorEntities.GetContext().SaveChanges();
+                        newPartner.IdPartnerName = partnerName.Id;
+                    }
+
+                    Data.MasterFloorEntities.GetContext().PartnersImport.Add(newPartner);
+                    MessageBox.Show("Успешно добавлено!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
+                Data.MasterFloorEntities.GetContext().SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+    }
+}
