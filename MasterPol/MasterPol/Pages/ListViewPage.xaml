@@ -33,12 +33,12 @@
                                 <Run Text="|"/>
                                 <Run Text="{Binding Partner.PartnerName.Name}"/>
                             </TextBlock>
-                            <TextBlock Text="{Binding Partner.Directors.FIO, StringFormat={}Директор: {0}}"></TextBlock>
-                            <TextBlock Text="{Binding Partner.PhoneOfPartner, StringFormat={}Номер телефона: {0}}"></TextBlock>
+                            <TextBlock Text="{Binding Partner.Directors.FIO, StringFormat={}{0}}"></TextBlock>
+                            <TextBlock Text="{Binding Partner.PhoneOfPartner, StringFormat={}{0}}"></TextBlock>
                             <TextBlock Text="{Binding Partner.Reiting, StringFormat={}Рейтинг: {0}}"></TextBlock>
                         </StackPanel>
 
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding Discount, StringFormat={}Скидка: {0}%}"></TextBlock>
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding Discount, StringFormat={}{0}%}"></TextBlock>
 
                         <Button x:Name="EditButton" Grid.Column="2" 
                                 Content="Редактировать"

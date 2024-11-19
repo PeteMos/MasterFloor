@@ -66,7 +66,7 @@ namespace MasterPol.Pages
             }
             else
             {
-                MessageBox.Show("Пожалуйста, выберите партнера из списка.");
+                MessageBox.Show("Пожалуйста, выберите партнера из списка!");
             }
         }
 

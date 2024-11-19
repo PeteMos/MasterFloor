@@ -26,7 +26,6 @@ namespace MasterPol.Pages
         {
             InitializeComponent();
             _selectedPartner = selectedPartner;
-
             LoadHistory();
         }
 
@@ -41,7 +40,6 @@ namespace MasterPol.Pages
                     DateOfSale = p.DateOfSale
                 })
                 .ToList();
-
             HistoryDataGrid.ItemsSource = history;
         }
 

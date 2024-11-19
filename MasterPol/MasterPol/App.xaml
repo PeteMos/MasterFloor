@@ -17,9 +17,11 @@
         </Style>
         <Style TargetType="Label">
             <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
         </Style>
         <Style TargetType="ComboBox">
             <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
             <Setter Property="Width" Value="250"></Setter>
             <Setter Property="Height" Value="30"></Setter>
             <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
@@ -27,6 +29,7 @@
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
             <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>

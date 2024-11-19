@@ -43,11 +43,9 @@ namespace MasterPol.Pages
                 NameTextBox.Text = _currentpartner.PartnerName.Name;
                 RatingTextBox.Text = _currentpartner.Reiting.ToString();
                 IndexTextBox.Text = _currentpartner.Adress.Indexes.IndexOf.ToString();
-
                 RegionTextBox.Text = _currentpartner.Adress.Regions.RegionOf;
                 CityTextBox.Text = _currentpartner.Adress.Cities.CityOf;
                 StreetTextBox.Text = _currentpartner.Adress.Streets.StreetOf;
-
                 HouseNumTextBox.Text = _currentpartner.Adress.HouseNum.ToString();
                 FIOTextBox.Text = _currentpartner.Directors.FIO;
                 PhoneTextBox.Text = _currentpartner.PhoneOfPartner;
@@ -58,8 +56,6 @@ namespace MasterPol.Pages
                     .FirstOrDefault(d => d.Id == _currentpartner.Id);
             }
         }
-
-
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
@@ -107,14 +103,13 @@ namespace MasterPol.Pages
                     return;
                 }
 
-                if (!FlagAddorEdit) // Если мы редактируем существующего партнера
+                if (!FlagAddorEdit)
                 {
                     _currentpartner.PartnerName.Name = NameTextBox.Text;
                     _currentpartner.Reiting = Convert.ToInt32(RatingTextBox.Text);
                     _currentpartner.PhoneOfPartner = PhoneTextBox.Text;
                     _currentpartner.EmailOfPartner = EmailTextBox.Text;
                     _currentpartner.Directors.FIO = FIOTextBox.Text;
-
                     _currentpartner.Adress.Indexes.IndexOf = Convert.ToInt32(IndexTextBox.Text);
 
                     if (_currentpartner.Adress.Regions == null)
@@ -152,7 +147,6 @@ namespace MasterPol.Pages
                     {
                         _currentpartner.Adress.Streets.StreetOf = StreetTextBox.Text;
                     }
-
                     _currentpartner.Adress.HouseNum = Convert.ToInt32(HouseNumTextBox.Text);
 
                     Data.MasterPolEntities.GetContext().SaveChanges();
@@ -210,7 +204,7 @@ namespace MasterPol.Pages
                     }
                     else
                     {
-                        MessageBox.Show("Пожалуйста, выберите тип партнера.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show("Пожалуйста, выберите тип партнера!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
 
                     var searchRegion = Data.MasterPolEntities.GetContext().Regions
@@ -241,7 +235,7 @@ namespace MasterPol.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Не получилось добавить(", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.ToString(), "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
