@@ -38,6 +38,7 @@ namespace MasterPol.Pages
             IdTextBox.Visibility = Visibility.Hidden;
             IdLabel.Visibility = Visibility.Hidden;
             TypeComboBox.ItemsSource = Data.MasterPolEntities.GetContext().TypeOfPartner.ToList();
+
             if (_currentpartner != null)
             {
                 NameTextBox.Text = _currentpartner.PartnerName.Name;
@@ -53,7 +54,7 @@ namespace MasterPol.Pages
                 IdTextBox.Text = _currentpartner.Id.ToString();
 
                 TypeComboBox.SelectedItem = Data.MasterPolEntities.GetContext().TypeOfPartner
-                    .FirstOrDefault(d => d.Id == _currentpartner.Id);
+                    .FirstOrDefault(d => d.Id == _currentpartner.IdTypeOfParther);
             }
         }
 
@@ -66,27 +67,62 @@ namespace MasterPol.Pages
             try
             {
                 StringBuilder errors = new StringBuilder();
+                int partnerRating = -1;
+                int index = -1;
+                int houseNumber = -1;
 
                 if (string.IsNullOrEmpty(NameTextBox.Text))
                     errors.AppendLine("Заполните наименование!");
                 if (TypeComboBox.SelectedItem == null)
                     errors.AppendLine("Выберите тип партнера!");
+
                 if (string.IsNullOrEmpty(RatingTextBox.Text))
+                {
                     errors.AppendLine("Заполните рейтинг!");
+                }
+                else if (!int.TryParse(RatingTextBox.Text, out partnerRating) || partnerRating < 0)
+                {
+                    errors.AppendLine("Рейтинг должен быть целым неотрицательным числом!");
+                }
+
                 if (string.IsNullOrEmpty(IndexTextBox.Text))
+                {
                     errors.AppendLine("Заполните индекс!");
+                }
+                else if (!int.TryParse(IndexTextBox.Text, out index) || index < 0)
+                {
+                    errors.AppendLine("Индекс должен быть целым неотрицательным числом!");
+                }
+
+                if (string.IsNullOrEmpty(HouseNumTextBox.Text))
+                {
+                    errors.AppendLine("Заполните номер дома!");
+                }
+                else if (!int.TryParse(HouseNumTextBox.Text, out houseNumber) || houseNumber < 0)
+                {
+                    errors.AppendLine("Номер дома должен быть целым неотрицательным числом!");
+                }
+
+                if (string.IsNullOrEmpty(PhoneTextBox.Text))
+                {
+                    errors.AppendLine("Заполните номер телефона!");
+                }
+                else if (!(PhoneTextBox.Text.StartsWith("+") &&
+                           PhoneTextBox.Text.Length >= 11 &&
+                           PhoneTextBox.Text.Length <= 16 &&
+                           PhoneTextBox.Text.Skip(1).All(char.IsDigit)))
+                {
+                    errors.AppendLine("Номер телефона должен начинаться с '+' и содержать от 10 до 15 цифр.");
+                }
+
                 if (string.IsNullOrEmpty(RegionTextBox.Text))
                     errors.AppendLine("Заполните регион!");
                 if (string.IsNullOrEmpty(CityTextBox.Text))
                     errors.AppendLine("Заполните город!");
                 if (string.IsNullOrEmpty(StreetTextBox.Text))
                     errors.AppendLine("Заполните улицу!");
-                if (string.IsNullOrEmpty(HouseNumTextBox.Text))
-                    errors.AppendLine("Заполните номер дома!");
                 if (string.IsNullOrEmpty(FIOTextBox.Text))
                     errors.AppendLine("Заполните ФИО!");
-                if (string.IsNullOrEmpty(PhoneTextBox.Text))
-                    errors.AppendLine("Заполните номер телефона!");
                 if (string.IsNullOrEmpty(EmailTextBox.Text))
                     errors.AppendLine("Заполните Email!");
 
@@ -106,11 +142,17 @@ namespace MasterPol.Pages
                 if (!FlagAddorEdit)
                 {
                     _currentpartner.PartnerName.Name = NameTextBox.Text;
-                    _currentpartner.Reiting = Convert.ToInt32(RatingTextBox.Text);
+                    _currentpartner.Reiting = partnerRating;
                     _currentpartner.PhoneOfPartner = PhoneTextBox.Text;
                     _currentpartner.EmailOfPartner = EmailTextBox.Text;
                     _currentpartner.Directors.FIO = FIOTextBox.Text;
-                    _currentpartner.Adress.Indexes.IndexOf = Convert.ToInt32(IndexTextBox.Text);
+
+                    if (TypeComboBox.SelectedItem is Data.TypeOfPartner selectedType)
+                    {
+                        _currentpartner.IdTypeOfParther = selectedType.Id;
+                    }
+
+                    _currentpartner.Adress.Indexes.IndexOf = index;
 
                     if (_currentpartner.Adress.Regions == null)
                     {
@@ -118,6 +160,7 @@ namespace MasterPol.Pages
                         {
                             RegionOf = RegionTextBox.Text
                         };
+                        Data.MasterPolEntities.GetContext().Regions.Add(_currentpartner.Adress.Regions);
                     }
                     else
                     {
@@ -130,6 +173,7 @@ namespace MasterPol.Pages
                         {
                             CityOf = CityTextBox.Text
                         };
+                        Data.MasterPolEntities.GetContext().Cities.Add(_currentpartner.Adress.Cities);
                     }
                     else
                     {
@@ -142,15 +186,24 @@ namespace MasterPol.Pages
                         {
                             StreetOf = StreetTextBox.Text
                         };
+                        Data.MasterPolEntities.GetContext().Streets.Add(_currentpartner.Adress.Streets);
                     }
                     else
                     {
                         _currentpartner.Adress.Streets.StreetOf = StreetTextBox.Text;
                     }
-                    _currentpartner.Adress.HouseNum = Convert.ToInt32(HouseNumTextBox.Text);
 
-                    Data.MasterPolEntities.GetContext().SaveChanges();
-                    MessageBox.Show("Успешно изменено!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    _currentpartner.Adress.HouseNum = houseNumber;
+
+                    try
+                    {
+                        Data.MasterPolEntities.GetContext().SaveChanges();
+                        MessageBox.Show("Успешно изменено!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ошибка при сохранении изменений: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
 
                 else
@@ -158,13 +211,13 @@ namespace MasterPol.Pages
                     var newPartner = new Data.PartnersImport
                     {
                         PartnerName = new Data.PartnerName { Name = NameTextBox.Text },
-                        Reiting = Convert.ToInt32(RatingTextBox.Text),
+                        Reiting = partnerRating,
                         PhoneOfPartner = PhoneTextBox.Text,
                         EmailOfPartner = EmailTextBox.Text,
                         Adress = new Data.Adress
                         {
-                            Indexes = new Data.Indexes { IndexOf = Convert.ToInt32(IndexTextBox.Text) },
-                            HouseNum = Convert.ToInt32(HouseNumTextBox.Text)
+                            Indexes = new Data.Indexes { IndexOf = index },
+                            HouseNum = houseNumber
                         }
                     };
 
@@ -196,15 +249,15 @@ namespace MasterPol.Pages
                         newPartner.IdPartnerName = partnerName.Id;
                     }
 
-                    var selectedType = Data.MasterPolEntities.GetContext().TypeOfPartner
-                        .FirstOrDefault(item => item.TypeOfPartner1 == TypeComboBox.Text);
+                    var selectedType = TypeComboBox.SelectedItem as Data.TypeOfPartner;
                     if (selectedType != null)
                     {
-                        newPartner.Id = selectedType.Id;
+                        newPartner.IdTypeOfParther = selectedType.Id; 
                     }
                     else
                     {
                         MessageBox.Show("Пожалуйста, выберите тип партнера!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
                     }
 
                     var searchRegion = Data.MasterPolEntities.GetContext().Regions
@@ -213,12 +266,26 @@ namespace MasterPol.Pages
                     {
                         newPartner.Adress.IdRegion = searchRegion.Id;
                     }
+                    else
+                    {
+                        Data.Regions region = new Data.Regions { RegionOf = RegionTextBox.Text };
+                        Data.MasterPolEntities.GetContext().Regions.Add(region);
+                        Data.MasterPolEntities.GetContext().SaveChanges();
+                        newPartner.Adress.IdRegion = region.Id;
+                    }
 
                     var searchCity = Data.MasterPolEntities.GetContext().Cities
                         .FirstOrDefault(item => item.CityOf == CityTextBox.Text);
                     if (searchCity != null)
                     {
                         newPartner.Adress.IdCity = searchCity.Id;
+                    }
+                    else
+                    {
+                        Data.Cities city = new Data.Cities { CityOf = CityTextBox.Text };
+                        Data.MasterPolEntities.GetContext().Cities.Add(city);
+                        Data.MasterPolEntities.GetContext().SaveChanges();
+                        newPartner.Adress.IdCity = city.Id;
                     }
 
                     var searchStreet = Data.MasterPolEntities.GetContext().Streets
@@ -227,11 +294,19 @@ namespace MasterPol.Pages
                     {
                         newPartner.Adress.IdStreet = searchStreet.Id;
                     }
+                    else
+                    {
+                        Data.Streets street = new Data.Streets { StreetOf = StreetTextBox.Text };
+                        Data.MasterPolEntities.GetContext().Streets.Add(street);
+                        Data.MasterPolEntities.GetContext().SaveChanges();
+                        newPartner.Adress.IdStreet = street.Id;
+                    }
 
                     Data.MasterPolEntities.GetContext().PartnersImport.Add(newPartner);
                     Data.MasterPolEntities.GetContext().SaveChanges();
                     MessageBox.Show("Успешно добавлено!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
+
             }
             catch (Exception ex)
             {
