@@ -12,19 +12,31 @@
     <Grid x:Name="Prod">
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center">
+            
             <Label Content="Авторизация" HorizontalAlignment="Center" 
                    VerticalAlignment="Center"
                    FontWeight="Bold"
-                   FontSize="20"></Label>
-            <Label Content="Логин:" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-            <TextBox x:Name="LoginTextBox" HorizontalContentAlignment="Center" 
-                     VerticalContentAlignment="Center"></TextBox>
+                   FontSize="30">
+            </Label>
+
+            <Label Content="Логин:" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center">
+            </Label>
+            
+            <TextBox x:Name="LoginTextBox" 
+                     HorizontalContentAlignment="Center" 
+                     VerticalContentAlignment="Center">
+            </TextBox>
+            
             <Label Content="Пароль:" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+
             <PasswordBox x:Name="PasswordBox" 
-                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></PasswordBox>
+                         HorizontalContentAlignment="Center" 
+                         VerticalContentAlignment="Center">
+            </PasswordBox>
+            
             <Button x:Name="LoginButton" Content="Войти"
                     Click="LoginButton_Click" Margin="10"></Button>
-
         </StackPanel>
     </Grid>
 </Page>
