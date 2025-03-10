@@ -11,10 +11,17 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="HistoryDataGrid" Grid.Row="0" 
+
+        <Label Content="Истории реализации продукции партнёром" HorizontalAlignment="Center" 
+               VerticalAlignment="Center"
+               FontWeight="Bold"
+               FontSize="25"></Label>
+
+        <DataGrid x:Name="HistoryDataGrid" Grid.Row="1" 
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"
@@ -30,7 +37,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="BackButton" Grid.Row="1" 
+        <Button x:Name="BackButton" Grid.Row="2" 
                 Content="Назад" HorizontalAlignment="Center"
                 Click="BackButton_Click"></Button>
     </Grid>

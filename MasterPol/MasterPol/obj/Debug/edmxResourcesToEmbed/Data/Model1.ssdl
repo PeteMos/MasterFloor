@@ -24,6 +24,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FIO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityType Name="Indexes">
     <Key>
@@ -208,18 +210,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Partners_import_Directors">
-    <End Role="Directors" Type="Self.Directors" Multiplicity="1" />
-    <End Role="PartnersImport" Type="Self.PartnersImport" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Directors">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PartnersImport">
-        <PropertyRef Name="IdDirector" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Partners_import_PartnerName">
     <End Role="PartnerName" Type="Self.PartnerName" Multiplicity="1" />
     <End Role="PartnersImport" Type="Self.PartnersImport" Multiplicity="*" />
@@ -241,6 +231,18 @@
       </Principal>
       <Dependent Role="PartnersImport">
         <PropertyRef Name="IdTypeOfParther" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartnersImport_Directors">
+    <End Role="Directors" Type="Self.Directors" Multiplicity="1" />
+    <End Role="PartnersImport" Type="Self.PartnersImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Directors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartnersImport">
+        <PropertyRef Name="IdDirector" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -324,16 +326,16 @@
       <End Role="Adress" EntitySet="Adress" />
       <End Role="PartnersImport" EntitySet="PartnersImport" />
     </AssociationSet>
-    <AssociationSet Name="FK_Partners_import_Directors" Association="Self.FK_Partners_import_Directors">
-      <End Role="Directors" EntitySet="Directors" />
-      <End Role="PartnersImport" EntitySet="PartnersImport" />
-    </AssociationSet>
     <AssociationSet Name="FK_Partners_import_PartnerName" Association="Self.FK_Partners_import_PartnerName">
       <End Role="PartnerName" EntitySet="PartnerName" />
       <End Role="PartnersImport" EntitySet="PartnersImport" />
     </AssociationSet>
     <AssociationSet Name="FK_Partners_import_TypeOfPartner" Association="Self.FK_Partners_import_TypeOfPartner">
       <End Role="TypeOfPartner" EntitySet="TypeOfPartner" />
+      <End Role="PartnersImport" EntitySet="PartnersImport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartnersImport_Directors" Association="Self.FK_PartnersImport_Directors">
+      <End Role="Directors" EntitySet="Directors" />
       <End Role="PartnersImport" EntitySet="PartnersImport" />
     </AssociationSet>
     <AssociationSet Name="FK_Product_type_import_TypeOfProduction" Association="Self.FK_Product_type_import_TypeOfProduction">

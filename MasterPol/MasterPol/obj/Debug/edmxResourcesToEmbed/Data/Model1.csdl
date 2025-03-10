@@ -30,7 +30,9 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="PartnersImport" Relationship="Self.FK_Partners_import_Directors" FromRole="Directors" ToRole="PartnersImport" />
+    <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PartnersImport" Relationship="Self.FK_PartnersImport_Directors" FromRole="Directors" ToRole="PartnersImport" />
   </EntityType>
   <EntityType Name="Indexes">
     <Key>
@@ -83,7 +85,7 @@
     <Property Name="INN" Type="Int64" Nullable="false" />
     <Property Name="Reiting" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Adress" Relationship="Self.FK_Partners_import_Adress" FromRole="PartnersImport" ToRole="Adress" />
-    <NavigationProperty Name="Directors" Relationship="Self.FK_Partners_import_Directors" FromRole="PartnersImport" ToRole="Directors" />
+    <NavigationProperty Name="Directors" Relationship="Self.FK_PartnersImport_Directors" FromRole="PartnersImport" ToRole="Directors" />
     <NavigationProperty Name="PartnerName" Relationship="Self.FK_Partners_import_PartnerName" FromRole="PartnersImport" ToRole="PartnerName" />
     <NavigationProperty Name="TypeOfPartner" Relationship="Self.FK_Partners_import_TypeOfPartner" FromRole="PartnersImport" ToRole="TypeOfPartner" />
   </EntityType>
@@ -210,7 +212,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Partners_import_Directors">
+  <Association Name="FK_PartnersImport_Directors">
     <End Role="Directors" Type="Self.Directors" Multiplicity="1" />
     <End Role="PartnersImport" Type="Self.PartnersImport" Multiplicity="*" />
     <ReferentialConstraint>
@@ -342,7 +344,7 @@
       <End Role="Adress" EntitySet="Adress" />
       <End Role="PartnersImport" EntitySet="PartnersImport" />
     </AssociationSet>
-    <AssociationSet Name="FK_Partners_import_Directors" Association="Self.FK_Partners_import_Directors">
+    <AssociationSet Name="FK_PartnersImport_Directors" Association="Self.FK_PartnersImport_Directors">
       <End Role="Directors" EntitySet="Directors" />
       <End Role="PartnersImport" EntitySet="PartnersImport" />
     </AssociationSet>

@@ -70,5 +70,9 @@ namespace MasterPol.Pages
             }
         }
 
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.Manager.MainFrame.Navigate(new Pages.LoginPage());
+        }
     }
 }

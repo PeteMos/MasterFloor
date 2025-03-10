@@ -152,6 +152,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\AddEditPage.xaml.cs">
@@ -162,6 +166,9 @@
     </Compile>
     <Compile Include="Pages\ListViewPage.xaml.cs">
       <DependentUpon>ListViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -206,7 +213,6 @@
   <ItemGroup>
     <Resource Include="Мастер пол.ico" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Data\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

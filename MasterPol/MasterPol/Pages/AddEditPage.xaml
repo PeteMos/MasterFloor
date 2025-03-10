@@ -6,17 +6,24 @@
       xmlns:local="clr-namespace:MasterPol.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="650" d:DesignWidth="1000"
-      Title="ИС Мастер Пол - добавление/редактирование">
+      Title="ИС Мастер Пол - добавление/редактирование"
+      Background="White">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" 
+
+        <Label Content="Добавление/редактирование партнёров" HorizontalAlignment="Center" 
+               VerticalAlignment="Center"
+               FontWeight="Bold"
+               FontSize="25"></Label>
+
+        <Grid Grid.Row="1" 
               HorizontalAlignment="Center"
               VerticalAlignment="Center">
-
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -27,9 +34,9 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="160"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
                 <ColumnDefinition Width="300"></ColumnDefinition>
-                <ColumnDefinition Width="160"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
                 <ColumnDefinition Width="300"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
@@ -72,11 +79,11 @@
 
         </Grid>
 
-        <Button x:Name="BackButton" Grid.Row="1"
+        <Button x:Name="BackButton" Grid.Row="2"
                 Content="Назад" HorizontalAlignment="Left"
                 Margin="300,0,0,10"
                 Click="BackButton_Click"></Button>
-        <Button x:Name="SaveButton" Grid.Row="1"
+        <Button x:Name="SaveButton" Grid.Row="2"
                 Content="Сохранить" HorizontalAlignment="Right"
                 Margin="0,0,300,10"
                 Click="SaveButton_Click"></Button>

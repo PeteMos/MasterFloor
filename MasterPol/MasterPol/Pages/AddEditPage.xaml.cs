@@ -72,14 +72,20 @@ namespace MasterPol.Pages
                 int houseNumber = -1;
 
                 if (string.IsNullOrEmpty(NameTextBox.Text))
+                {
                     errors.AppendLine("Заполните наименование!");
+                }
+
                 if (TypeComboBox.SelectedItem == null)
+                {
                     errors.AppendLine("Выберите тип партнера!");
+                }
 
                 if (string.IsNullOrEmpty(RatingTextBox.Text))
                 {
                     errors.AppendLine("Заполните рейтинг!");
                 }
+
                 else if (!int.TryParse(RatingTextBox.Text, out partnerRating) || partnerRating < 0)
                 {
                     errors.AppendLine("Рейтинг должен быть целым неотрицательным числом!");
@@ -89,6 +95,7 @@ namespace MasterPol.Pages
                 {
                     errors.AppendLine("Заполните индекс!");
                 }
+
                 else if (!int.TryParse(IndexTextBox.Text, out index) || index < 0)
                 {
                     errors.AppendLine("Индекс должен быть целым неотрицательным числом!");
@@ -98,6 +105,7 @@ namespace MasterPol.Pages
                 {
                     errors.AppendLine("Заполните номер дома!");
                 }
+
                 else if (!int.TryParse(HouseNumTextBox.Text, out houseNumber) || houseNumber < 0)
                 {
                     errors.AppendLine("Номер дома должен быть целым неотрицательным числом!");
@@ -107,6 +115,7 @@ namespace MasterPol.Pages
                 {
                     errors.AppendLine("Заполните номер телефона!");
                 }
+
                 else if (!(PhoneTextBox.Text.StartsWith("+") &&
                            PhoneTextBox.Text.Length >= 11 &&
                            PhoneTextBox.Text.Length <= 16 &&
@@ -116,15 +125,29 @@ namespace MasterPol.Pages
                 }
 
                 if (string.IsNullOrEmpty(RegionTextBox.Text))
+                {
                     errors.AppendLine("Заполните регион!");
+                }
+
                 if (string.IsNullOrEmpty(CityTextBox.Text))
+                {
                     errors.AppendLine("Заполните город!");
+                }
+
                 if (string.IsNullOrEmpty(StreetTextBox.Text))
+                {
                     errors.AppendLine("Заполните улицу!");
+                }
+
                 if (string.IsNullOrEmpty(FIOTextBox.Text))
+                {
                     errors.AppendLine("Заполните ФИО!");
+                }
+
                 if (string.IsNullOrEmpty(EmailTextBox.Text))
+                {
                     errors.AppendLine("Заполните Email!");
+                }
 
                 if (errors.Length > 0)
                 {
@@ -200,6 +223,7 @@ namespace MasterPol.Pages
                         Data.MasterPolEntities.GetContext().SaveChanges();
                         MessageBox.Show("Успешно изменено!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
+
                     catch (Exception ex)
                     {
                         MessageBox.Show($"Ошибка при сохранении изменений: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -227,6 +251,7 @@ namespace MasterPol.Pages
                     {
                         newPartner.IdDirector = searchDirector.Id;
                     }
+
                     else
                     {
                         Data.Directors directors = new Data.Directors { FIO = FIOTextBox.Text };
@@ -241,6 +266,7 @@ namespace MasterPol.Pages
                     {
                         newPartner.IdPartnerName = searchPartnerName.Id;
                     }
+
                     else
                     {
                         Data.PartnerName partnerName = new Data.PartnerName { Name = NameTextBox.Text };
@@ -280,6 +306,7 @@ namespace MasterPol.Pages
                     {
                         newPartner.Adress.IdCity = searchCity.Id;
                     }
+
                     else
                     {
                         Data.Cities city = new Data.Cities { CityOf = CityTextBox.Text };
@@ -294,6 +321,7 @@ namespace MasterPol.Pages
                     {
                         newPartner.Adress.IdStreet = searchStreet.Id;
                     }
+
                     else
                     {
                         Data.Streets street = new Data.Streets { StreetOf = StreetTextBox.Text };
@@ -306,7 +334,6 @@ namespace MasterPol.Pages
                     Data.MasterPolEntities.GetContext().SaveChanges();
                     MessageBox.Show("Успешно добавлено!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-
             }
             catch (Exception ex)
             {

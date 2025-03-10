@@ -9,14 +9,22 @@
       Background="White">
 
     <Grid>
+        
         <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
 
+        <Label Content="Список партнёров" HorizontalAlignment="Center" 
+            VerticalAlignment="Center"
+            FontWeight="Bold"
+            FontSize="25"></Label>
+        
         <ListView x:Name="MasterListView" 
                   VerticalAlignment="Center" 
-                  HorizontalAlignment="Center">
+                  HorizontalAlignment="Center"
+                  Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -50,8 +58,11 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="AddButton" Grid.Row="1" Content="Добавить"
+        <Button x:Name="AddButton" Grid.Row="2" Margin="250,0,0,0"
+                Content="Добавить"
                 Click="AddButton_Click"></Button>
-
+        <Button x:Name="BackButton" Grid.Row="2" Margin="0,0,250,0"
+                Content="Назад"
+                Click="BackButton_Click"></Button>
     </Grid>
 </Page>

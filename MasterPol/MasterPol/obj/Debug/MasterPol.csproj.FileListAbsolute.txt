@@ -139,3 +139,7 @@ C:\Users\user\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\AddEditPag
 C:\Users\user\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\HistoryPage.g.cs
 C:\Users\user\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\AddEditPage.baml
 C:\Users\user\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\HistoryPage.baml
+C:\Users\pmosin\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\HistoryPage.g.cs
+C:\Users\pmosin\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\HistoryPage.baml
+C:\Users\pmosin\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\LoginPage.g.cs
+C:\Users\pmosin\Desktop\MasterFloor\MasterPol\MasterPol\obj\Debug\Pages\LoginPage.baml

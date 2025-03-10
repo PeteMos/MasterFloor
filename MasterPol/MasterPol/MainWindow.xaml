@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterPol"
         mc:Ignorable="d"
-        Title="ИС Мастер Пол" Height="650" Width="1000"
+        Title="{Binding ElementName=MainFrame, Path=Content.Title}" 
+        Height="650" Width="1000"
         MinHeight="650" MinWidth="1000"
         WindowStartupLocation="CenterScreen">
     <Grid>
@@ -14,8 +15,14 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Background="#F4E8D3">
-            <Image Source="Resources/Мастер пол.png" HorizontalAlignment="Left" Margin="210,0,0,0"></Image>
-            <TextBlock Text="Мастер пол" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35"></TextBlock>
+            <Image Source="Resources/Мастер пол.png" 
+                   HorizontalAlignment="Left" 
+                   Margin="280,0,0,0"></Image>
+            <TextBlock Text="Мастер Пол" 
+                   FontWeight="Bold" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center" 
+                   FontSize="40"></TextBlock>
         </Grid>
         <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
