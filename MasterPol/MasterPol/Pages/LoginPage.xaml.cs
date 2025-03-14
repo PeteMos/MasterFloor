@@ -43,6 +43,12 @@ namespace MasterPol.Pages
                     errors.AppendLine("Заполните пароль!");
                 }
 
+                if (errors.Length > 0)
+                {
+                    MessageBox.Show(errors.ToString(), "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
                 if (Data.MasterPolEntities.GetContext().Directors
                     .Any(d => d.Login == LoginTextBox.Text && d.Password == PasswordBox.Password))
                 {
